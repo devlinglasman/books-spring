@@ -1,4 +1,4 @@
-package group1.googlebooks;
+package group1.googlebooks.model;
 
 import java.io.Serializable;
 
