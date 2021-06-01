@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h3>Books</h3>
+<tr th:each="volume : ${volumes}">
+    <td th:text="'Id: ' + ${volume.id}">1</td>
+    <br>
+    <td th:text="'Title: ' + ${volume.volumeInfo.title}">Text ...</td>
+    <br>
+    <br>
+</tr>
+<br>
+<button onclick="location.href='/search'">Back</button>
+</body>
+</html>
