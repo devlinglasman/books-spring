@@ -1,4 +1,4 @@
-package group1.googlebooks;
+package group1.googlebooks.model;
 
 public class VolumeInfo {
     public String title;
