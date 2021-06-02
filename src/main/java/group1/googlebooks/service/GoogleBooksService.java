@@ -6,8 +6,8 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 public class GoogleBooksService implements BooksService {
-    private RestTemplate restTemplate;
     private final String googleApiKey = "AIzaSyB8PrVZN2nGqgHp1BJ6M3RPIuH1ME0Vaw0";
+    private RestTemplate restTemplate;
 
     public GoogleBooksService() {
         this.restTemplate = new RestTemplate();

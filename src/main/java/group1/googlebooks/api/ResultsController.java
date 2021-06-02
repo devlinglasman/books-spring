@@ -20,6 +20,7 @@ public class ResultsController {
     @GetMapping("/results")
     public ModelAndView booksResults(@RequestParam(value = "searchterm", required = false, defaultValue = "World") String searchTerm, ModelAndView mav) {
         VolumesCollection volumes = booksService.get(searchTerm, this.MAX_NUMBER_OF_RESULTS);
+
         mav.setViewName("results");
         mav.addObject("volumes", volumes.items);
         return mav;
