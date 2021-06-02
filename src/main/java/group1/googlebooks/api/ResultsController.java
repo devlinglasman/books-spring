@@ -12,14 +12,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 public class ResultsController {
-    private int maxNumberOfResults = 5;
+    private final int MAX_NUMBER_OF_RESULTS = 5;
 
     @Autowired
     private BooksService booksService;
 
     @GetMapping("/results")
     public ModelAndView booksResults(@RequestParam(value = "searchterm", required = false, defaultValue = "World") String searchTerm, ModelAndView mav) {
-        VolumesCollection volumes = booksService.get(searchTerm, this.maxNumberOfResults);
+        VolumesCollection volumes = booksService.get(searchTerm, this.MAX_NUMBER_OF_RESULTS);
         mav.setViewName("results");
         mav.addObject("volumes", volumes.items);
         return mav;
@@ -27,8 +27,7 @@ public class ResultsController {
 
     @GetMapping("/results/json")
     public ResponseEntity<VolumesCollection> booksResultsAsJson(@RequestParam(value = "searchterm", required = false, defaultValue = "World") String searchTerm) {
-        VolumesCollection volumes = booksService.get(searchTerm, this.maxNumberOfResults);
-        ResponseEntity<VolumesCollection> responseEntity = new ResponseEntity(volumes, HttpStatus.OK);
-        return responseEntity;
+        VolumesCollection volumes = booksService.get(searchTerm, this.MAX_NUMBER_OF_RESULTS);
+        return new ResponseEntity(volumes, HttpStatus.OK);
     }
 }
