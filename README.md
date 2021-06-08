@@ -12,27 +12,29 @@ This is a toybox app that we are using to explore the Spring Boot framework alon
 ## Running the Application
 
 From the home directory, build the application by running:
-
 ```
 ./mvnw clean package
 ```
 
-Then, you can run the application with:
-
+Then, you can run the jar with:
 ```
 java -jar ./target/google-books-0.0.1-SNAPSHOT.jar
 ```
 
 ## Docker
 
-First, build the app by running:
-
+First, build the jar by running:
 ```
 ./mvnw clean package
 ```
 
-Then, run:
-
+Build the Docker image:
 ```
 docker build -t google-books .
 ```
+
+Run the Docker container with mapped ports:
+```
+docker run --rm -p 8080:8080 google-books
+```
+
